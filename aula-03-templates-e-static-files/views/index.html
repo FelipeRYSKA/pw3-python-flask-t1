@@ -1,0 +1,20 @@
+<!-- importando temmplate base -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <h1>Bem-vindo ao meu site de jogos!</h1>
+    <h3>Seu site favorito de jogos</h3>
+    <hr>
+
+    <!-- alguma coisa -->
+    <p><a href="/games">Games</a></p>
+    <p><a href="/consoles">Consoles</a></p>
+    <hr>
+    <!-- como puxar img -->
+    <img src="{{url_for('static', filename='/imgs/games.webp')}}" alt="The Games" width="720px">
+    <!-- alt="" é o texto ALTERNATIVO caso a imagem NÃO possa ser carregada-->
+</main>
+
+{% endblock content %}
