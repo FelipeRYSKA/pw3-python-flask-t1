@@ -3,9 +3,9 @@
 
 <!-- formulario de cadastro -->
 <details>
-    <summary>[ Cadastrar um novo console ]</summary>
+    <summary>[Cadastrar um novo console ]</summary>
     <div class="col-md-4">
-        <form action="{{url_for('estoque_consoles')}}" method="post">
+        <form action="{{url_for('estoque-consoles')}}" method="post">
             
             <input type="text" name="nome" placeholder="Nome" class="form-control" required>
             
@@ -39,19 +39,18 @@
     </thead>
                 <!-- tbody>tr>td*6 -->
     <tbody>
-        {% for game in games %}
+        {% for console in consoles %}
         <tr>
-            <td>{{game.nome}}</td>
-            <td>{{game.ano}}</td>
-            <td>{{game.categoria}}</td>
-            <td>{{game.plataforma}}</td>
-            <td>{{game.preco}}</td>
-            <td>{{game.quantidade}}</td>
+            <td>{{console.nome}}</td>
+            <td>{{console.fabricante}}</td>
+            <td>{{console.ano}}</td>
+            <td>{{console.preco}}</td>
+            <td>{{console.quantidade}}</td>
             <td>
                 <a href="" class="btn btn-warning">editar</a>
             </td>
             <td>
-                <a href="{{url_for('estoque_consoles', id=game.id)}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir o console?')">Deletar</a>
+                <a href="{{url_for('estoque_consoles', id=console.id)}}" class="btn btn-danger" onclick="return confirm('Deseja mesmo excluir o console?')">Deletar</a>
             </td>
         </tr>
         {% endfor %}
