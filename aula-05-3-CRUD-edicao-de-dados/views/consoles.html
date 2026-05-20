@@ -1,0 +1,17 @@
+<!-- Importando o template base -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <h1>Consoles em destaque</h1>
+    <ol>
+        {% for console in consoles %}
+        <li>{{ console }}</li>
+        {% endfor %}
+    </ol>
+    <hr>
+    <p><a href="/">Voltar</a></p>
+</main>
+
+{% endblock content %}
