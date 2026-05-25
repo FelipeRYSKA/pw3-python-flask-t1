@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- formulario de edicao -->
+ <div class="col-md-6 m-auto">
+    <h3 style="text-align: center;">Editar jogo</h3>
+    <form action="{{url_for('editar_jogos', id=game.id)}}" method="post">
+        <input type="text" name="titulo" class="form-control" value="{{game.titulo}}" required>
+        <input type="number" name="ano" class="form-control" value="{{game.ano}}" required>
+        <input type="text" name="categoria" class="form-control" value="{{game.categoria}}" required>
+        <input type="text" name="plataforma" class="form-control" value="{{game.plataforma}}" required>
+        <input type="number" name="preco" class="form-control" value="{{game.preco}}" required>
+        <input type="number" name="quantidade" class="form-control" value="{{game.quantidade}}" required>
+        <!-- botões -->
+        <input type="submit" value="Alterar" class="btn btn-warning">
+        <input type="submit" value="Limpar" class="btn btn-danger">
+    </form>
+ </div>
+
+
+
+{% endblock content %}
