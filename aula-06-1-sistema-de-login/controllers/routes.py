@@ -4,6 +4,8 @@ from flask import render_template, request, redirect, url_for
 
 from models.database import Game, db, Console, Usuario
 
+from werkzeug.security import generate_password_hash
+
 
 # Criando a função para receber o Flask (app)
 
@@ -159,10 +161,12 @@ def init_app(app):
     @app.route("/cadastro", methods=['GET', 'POST'])
     def cadastro():
         if request.method =='POST':
-            email = request.form('email')
-            senha = request.form('senha')
+            email = request.form['email']
+            senha = request.form['senha']
+
+            senha_criptografia = generator_password_hash(senha, method='scrypt')
             #enviando para o model
-            novo_usuario = Usuario(email=email, senha=senha)
+            novo_usuario = Usuario(email=email, senha=senha_criptografia)
             #jogando no banco
             db.session.add(novo_usuario)
             db.session.commit()

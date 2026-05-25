@@ -40,7 +40,7 @@ class Console(db.Model):
         self.preco = preco
         self.quantidade = quantidade
 
-class Usuário(db.Model):
+class Usuario(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	email = db.Column(db.String(80), unique=True, nullable=False)
 	senha = db.Column(db.String(255), nullable=False)
