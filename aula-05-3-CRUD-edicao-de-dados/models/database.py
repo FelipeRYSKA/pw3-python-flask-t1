@@ -38,9 +38,5 @@ class Console(db.Model):
         self.fabricante = fabricante
         self.ano = ano
         self.preco = preco
-        self.quantidade = quantidade        
-        
-        
-        
-    
-    
+        self.quantidade = quantidade
+
