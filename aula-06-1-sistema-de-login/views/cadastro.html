@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<!-- nuscando e exibindo as flash mensagens -->
+ {% with messages = get_flashed_messages(with_categories=true)  %}
+
+ {% for category, message in messages %}
+    <div class="alert alert--{{ category }}">
+        {{message}}
+    </div>
+{% endfor %}
+{% endwith %}
+
+
 <div class="container">
     <div class="card mt-4">
         <div class="card-header">
