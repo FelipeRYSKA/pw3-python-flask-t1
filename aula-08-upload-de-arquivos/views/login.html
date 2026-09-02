@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- BUSCANDO E EXIBINDO AS FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}
+   <div class="alert alert-{{category}}">
+       {{message}}
+   </div>
+{% endfor %}
+{% endwith %}
+
+
+<!-- PÁGINA DE LOGIN -->
+<div class="container col-4">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Login do usuário</h2>
+        </div>
+        <div class="card-body m-auto">
+            <!-- FORMULÁRIO -->
+            <form action="{{url_for('login')}}" method="POST">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="Insira seu e-mail" class="form-control" required>
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Insira sua senha" class="form-control" required>
+                <!-- BOTÃO -->
+                 <br>
+                <button type="submit" class="btn btn-danger btn-block">Entrar</button>
+            </form>
+            <hr>
+            <!-- LINK PARA SE CADASTRAR -->
+             <h6>Não possui conta? <a href="{{url_for('cadastro')}}">Cadastre-se!</a></h6>
+        </div>
+    </div>
+</div>
+{% endblock content %}

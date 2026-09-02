@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- BUSCANDO E EXIBINDO AS FLASH MESSAGES -->
+ {% with messages = get_flashed_messages(with_categories=true) %}
+ {% for category, message in messages %}
+    <div class="alert alert-{{category}}">
+        {{message}}
+    </div>
+ {% endfor %}
+ {% endwith %}
+
+<!-- FORMULÁRIO DE CADASTRO -->
+ <div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Cadastro de Usuário</h2>
+        </div>
+        <div class="card-body">
+            <!-- FORMULÁRIO -->
+            <form action="{{url_for('cadastro')}}" method="POST">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="Insira seu e-mail" class="form-control">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Insira sua senha" class="form-control">
+                <button type="submit" class="btn btn-danger btn-block">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+ </div>
+{% endblock content %}

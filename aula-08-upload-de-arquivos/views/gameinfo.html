@@ -1,0 +1,27 @@
+<!-- PÁGINA COM AS INFORMAÇÕES INDIVIDUAIS DO JOGO -->
+ {% extends 'base.html' %}
+ {% block content %}
+ <div class="container" style="background-color: #f0f0f0; border-radius: 8px;">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <!-- BOTÃO PARA VOLTAR -->
+            <a href="{{url_for('apigames')}}" class="btn btn-dark">Voltar para lista</a><br><br>
+            <div class="card">
+                <!-- IMAGEM DO JOGO -->
+                <img src="{{jogoInfo.thumbnail}}">
+                <!-- INFORMAÇÕES DO JOGO -->
+                 <div class="card-body m-auto">
+                    <h3>{{jogoInfo.title}}</h3><br>
+                    <p>Gênero: {{jogoInfo.genre}}</p>
+                    <p>Descrição: {{jogoInfo.short_description}}</p>
+                    <p>Plataforma: {{jogoInfo.platform}}</p>
+                    <p>Editora: {{jogoInfo.publisher}}</p>
+                    <p>Data de lançamento: {{jogoInfo.release_date}}</p>
+                    <!-- BOTÃO PARA JOGAR -->
+                     <a href="{{jogoInfo.freetogame_profile_url}}" class="btn btn-danger">Jogue agora!</a>
+                 </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ {% endblock content %}

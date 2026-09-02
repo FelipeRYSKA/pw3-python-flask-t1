@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <h1>Games</h1>
+    <h2>Jogo em destaque</h2>
+    <p>Game mais jogado pelos nossos usuários:</p>
+    <ul>
+        {# Este é um comentário em Jinja2 (Python e Flask) #}
+        <li>Título: <strong>{{titulo}}</strong></li>
+        <li>Ano: <strong>{{ano}}</strong></li>
+        <li>Categoria: <strong>{{ categoria }}</strong></li>
+        <p>O jogo {{titulo}} tem {{2026 - ano}} anos!</p>
+    </ul>
+    <h3>Top Players (Ranking de jogadores)</h3>
+    <ol>
+        {% for jogador in jogadores: %}
+        <li>{{ jogador }}</li>
+        {% endfor %}
+    </ol>
+</main>
+{% endblock content %}
